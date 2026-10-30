@@ -65,5 +65,20 @@ public class TestRecursionProblems {
 	void test12() {
 		assertEquals(RecursionProblems.strCount("", "cat"), 0);
 	}
+	
+	@Test
+	void test13() {
+		assertEquals(RecursionProblems.stringClean(" "), " ");
+	}
+	
+	@Test
+	void test14() {
+		assertEquals(RecursionProblems.stringClean("sssss"), "s");
+	}
+	
+	@Test
+	void test16() {
+		assertEquals(RecursionProblems.stringClean("zzyyxx"), "zyx");
+	}
 
 } // End class

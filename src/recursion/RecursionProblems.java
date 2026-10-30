@@ -2,7 +2,7 @@ package recursion;
 
 public class RecursionProblems {
 	public static int count8(int n) {
-		// base case
+		// Base Case
 		if (n == 0) {
 			return 0; 
 		}
@@ -31,9 +31,11 @@ public class RecursionProblems {
 		testCountHi(args);
 		testCountHi2(args);
 		testStrCount(args);
+		testStringClean(args);
 	}
 	
 	public static int countHi(String str) {
+		// Base case 
 		if (str.length() == 0) return 0;
 		if (str.startsWith("hi")) {
 			return 1 + countHi(str.substring(1));
@@ -51,6 +53,7 @@ public class RecursionProblems {
 	}	
 	
 	public static int countHi2(String str) {
+		// Base case
 		if (str.length() == 0) return 0;
 		if (str.startsWith("xhi")) {
 			return countHi2(str.substring(3));
@@ -71,6 +74,7 @@ public class RecursionProblems {
 	}
 	
 	public static int strCount(String str, String sub) {
+		// Base case
 		if (str.length() == 0) {
 			return 0;
 		}
@@ -81,13 +85,33 @@ public class RecursionProblems {
 	}
 	
 	public static void testStrCount(String [] args) {
-		System.out.println("Recursion Problem #3");
+		System.out.println("Recursion Problem #4");
 		System.out.println(strCount("catcowcat", "cat"));
 		System.out.println(strCount("aaaa", "aa"));
 		System.out.println(strCount("catcowcat", "cow"));
 		System.out.println(strCount("catcowcat", "dog"));
 		System.out.println(strCount("", "cat"));
 	}
-}
-
 	
+	public static String stringClean(String str) {
+		// Base case
+		if (str.length() == 1) {
+			return str;
+		}
+		if (str.charAt(0) == str.charAt(1)) {
+			// First two letters are the same so we call another time
+			return stringClean(str.substring(1));
+		}
+		// First two letters are different
+		return str.charAt(0) + stringClean(str.substring(1));
+	}
+	
+	public static void testStringClean(String [] args) {
+		System.out.println("Recursion Problem #5");
+		System.out.println(stringClean("zzzzzzzz"));
+		System.out.println(stringClean(" "));
+		System.out.println(stringClean("zzadgggwd"));
+		System.out.println(stringClean("catabbbcdd"));
+		System.out.println(stringClean("Hello"));
+	}
+}
